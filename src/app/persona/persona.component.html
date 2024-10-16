@@ -1,0 +1,42 @@
+<div>
+    <h2>Registro de Persona</h2>
+    <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" type="text" maxlength="50"/>
+      </div>
+  
+      <div>
+        <label for="edad">Edad:</label>
+        <input id="edad" formControlName="edad" type="number" />
+      </div>
+  
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" />
+      </div>
+  
+      <button type="submit" [disabled]="personaForm.invalid">Registrar Persona</button>
+    </form>
+  </div>
+  
+  <div>
+    <h2>Personas Registradas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas">
+          <td>{{ persona.nombre }}</td>
+          <td>{{ persona.edad }}</td>
+          <td>{{ persona.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
